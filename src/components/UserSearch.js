@@ -32,7 +32,7 @@ class UserSearch extends Component {
   };
 
   render() {
-    let filteredNames = this.state.results.filter((emp) => {
+    let nameFilter = this.state.results.filter((emp) => {
       return (
         emp.name.last.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
         -1
@@ -64,9 +64,9 @@ class UserSearch extends Component {
     };
 
     if (this.state.sort === "ascending") {
-      filteredNames.sort(ascending);
+      nameFilter.sort(ascending);
     } else if (this.state.sort === "descending") {
-      filteredNames.sort(descending);
+      nameFilter.sort(descending);
     }
 
     return (
@@ -93,8 +93,9 @@ class UserSearch extends Component {
             <div className="col-md-1 headings">Location</div>
             <div className="col-md-2 headings">DOB</div>
           </div>
+          <hr />
           <div>
-            <UserArea filteredNames={filteredNames} />
+            <UserArea nameFilter={nameFilter} />
           </div>
         </div>
       </>
