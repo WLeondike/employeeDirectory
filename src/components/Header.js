@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from "react";
 
-function Header() {
+class Header extends Component {
+  render() {
     return (
-        <div>
-            <h1>Employee Directory</h1>
-            <input type="text" placeholder="Employee Name?" />
+      <div className="jumbotron">
+        <div className="container">
+          <h1>Employee Directory</h1>
         </div>
-    )
+      </div>
+    );
+  }
 }
 
 export default Header;

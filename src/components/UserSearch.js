@@ -1,0 +1,105 @@
+import React, { Component } from "react";
+import UserArea from "./UserArea";
+import API from "../utils/API";
+
+class UserSearch extends Component {
+  state = {
+    search: "",
+    sort: "",
+    results: [],
+  };
+
+  componentDidMount() {
+    API.getUsers()
+      .then((res) => this.setState({ results: res.data.results }))
+      .catch((err) => console.log(err));
+  }
+
+  handleInputChange = (event) => {
+    event.preventDefault();
+    this.setState({ search: event.target.value });
+  };
+
+  handleSort = () => {
+    if (this.state.sort === "descending" || this.state.sort !== "ascending") {
+      this.setState({ sort: "ascending" });
+    } else if (
+      this.state.sort === "ascending" ||
+      this.state.sort !== "descending"
+    ) {
+      this.setState({ sort: "descending" });
+    }
+  };
+
+  render() {
+    let filteredNames = this.state.results.filter((emp) => {
+      return (
+        emp.name.last.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+        -1
+      );
+    });
+
+    const ascending = (start, finish) => {
+      const empFirst = start.name.last.toUpperCase();
+      const empLast = finish.name.last.toUpperCase();
+      let compare = 0;
+      if (empFirst > empLast) {
+        compare = 1;
+      } else if (empFirst < empLast) {
+        compare = -1;
+      }
+      return compare * 1;
+    };
+
+    const descending = (start, finish) => {
+      const empFirst = start.name.last.toUpperCase();
+      const empLast = finish.name.last.toUpperCase();
+      let compare = 0;
+      if (empFirst > empLast) {
+        compare = 1;
+      } else if (empFirst < empLast) {
+        compare = -1;
+      }
+      return compare * 1;
+    };
+
+    if (this.state.sort === "ascending") {
+      filteredNames.sort(ascending);
+    } else if (this.state.sort === "descending") {
+      filteredNames.sort(descending);
+    }
+
+    return (
+      <>
+        <form>
+          <input
+            type="text"
+            placeholder="Employee's Last Name?"
+            value={this.state.search}
+            onChange={this.handleInputChange.bind(this)}
+          />
+        </form>
+
+        <div className="table-content">
+          <div className="row">
+            <div className="col-md-1 headings">Photo ID</div>
+            <div className="col-md-1 headings">Frist Name</div>
+            <div className="col-md-2 headings">
+              Last Name
+              <button className="btn" onClick={this.handleSort} />
+            </div>
+            <div className="col-md-2 headings">Phone Number</div>
+            <div className="col-md-3 headings">Email</div>
+            <div className="col-md-1 headings">Location</div>
+            <div className="col-md-2 headings">DOB</div>
+          </div>
+          <div>
+            <UserArea filteredNames={filteredNames} />
+          </div>
+        </div>
+      </>
+    );
+  };
+};
+
+export default UserSearch;
