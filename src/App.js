@@ -5,10 +5,8 @@ import UserSearch from './components/UserSearch';
 function App() {
   return (
     <div className="App">
-      <wrapper>
         <Header />
         <UserSearch />
-      </wrapper>
     </div>
   );
 }

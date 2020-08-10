@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserArea({ nameFilter }) {
+function EmpArea({ nameFilter }) {
   return (
     <>
       {nameFilter.map((emp) => (
@@ -20,4 +20,4 @@ function UserArea({ nameFilter }) {
   );
 }
 
-export default UserArea;
+export default EmpArea;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserArea from "./UserArea";
+import EmpArea from "./EmpArea";
 import API from "../utils/API";
 
 class UserSearch extends Component {
@@ -34,8 +34,9 @@ class UserSearch extends Component {
   render() {
     let nameFilter = this.state.results.filter((emp) => {
       return (
-        emp.name.last.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
-        -1
+        emp.name.last
+          .toLowerCase()
+          .indexOf(this.state.search.toLowerCase()) !== -1
       );
     });
 
@@ -60,7 +61,7 @@ class UserSearch extends Component {
       } else if (empFirst < empLast) {
         compare = -1;
       }
-      return compare * 1;
+      return compare * -1;
     };
 
     if (this.state.sort === "ascending") {
@@ -71,16 +72,17 @@ class UserSearch extends Component {
 
     return (
       <>
-        <form>
+        <form className="text-center">
           <input
+            className="text-center"
             type="text"
             placeholder="Employee's Last Name?"
             value={this.state.search}
             onChange={this.handleInputChange.bind(this)}
           />
         </form>
-
-        <div className="table-content">
+        <br />
+        <div className="table-content ml-4">
           <div className="row">
             <div className="col-md-1 headings">Photo ID</div>
             <div className="col-md-1 headings">Frist Name</div>
@@ -95,7 +97,7 @@ class UserSearch extends Component {
           </div>
           <hr />
           <div>
-            <UserArea nameFilter={nameFilter} />
+            <EmpArea nameFilter={nameFilter} />
           </div>
         </div>
       </>
