@@ -85,7 +85,7 @@ class UserSearch extends Component {
         <div className="table-content">
           <div className="row">
             <div className="col-md-1 headings">Photo ID</div>
-            <div className="col-md-1 headings">Frist Name</div>
+            <div className="col-md-1 headings">First Name</div>
             <div className="col-md-2 headings">
             <button className="btn-info" onClick={this.handleSort}>
               Last Name
