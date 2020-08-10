@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,KACE,iBACF,CAEA,QACE,aACF","file":"main.ac1bf5e1.chunk.css","sourcesContent":[".App {\n  text-align: center;\n}\n\n.header {\n  padding: 100px;\n}\n"]}
