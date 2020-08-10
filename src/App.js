@@ -4,10 +4,17 @@ import UserSearch from './components/UserSearch';
 
 function App() {
   return (
-    <div className="App">
-        <Header />
+    <>
+    <Header />
+    <div className="App container-fluid">
+      <div className="row">
+      <div className="col-12">
+        
         <UserSearch />
+        </div>
+      </div>
     </div>
+    </>
   );
 }
 

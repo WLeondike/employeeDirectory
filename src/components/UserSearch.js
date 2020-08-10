@@ -71,7 +71,7 @@ class UserSearch extends Component {
     }
 
     return (
-      <>
+      <div className="">
         <form className="text-center">
           <input
             className="text-center"
@@ -82,13 +82,14 @@ class UserSearch extends Component {
           />
         </form>
         <br />
-        <div className="table-content ml-4">
+        <div className="table-content">
           <div className="row">
             <div className="col-md-1 headings">Photo ID</div>
             <div className="col-md-1 headings">Frist Name</div>
             <div className="col-md-2 headings">
+            <button className="btn-info" onClick={this.handleSort}>
               Last Name
-              <button className="btn" onClick={this.handleSort} />
+            </button>
             </div>
             <div className="col-md-2 headings">Phone Number</div>
             <div className="col-md-3 headings">Email</div>
@@ -100,7 +101,7 @@ class UserSearch extends Component {
             <EmpArea nameFilter={nameFilter} />
           </div>
         </div>
-      </>
+      </div>
     );
   };
 };
