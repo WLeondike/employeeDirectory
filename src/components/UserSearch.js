@@ -76,7 +76,7 @@ class UserSearch extends Component {
           <input
             className="text-center"
             type="text"
-            placeholder="Employee's Last Name?"
+            placeholder="Employee's Last Name"
             value={this.state.search}
             onChange={this.handleInputChange.bind(this)}
           />
