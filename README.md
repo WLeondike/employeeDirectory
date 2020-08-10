@@ -29,6 +29,7 @@
   ## Screenshots
 
   <img src ="./public/assets/images/screenshot.png" width="400">
+  <img src ="./public/assets/images/filteredLastName.png" width="400">
 
 
   ## License
